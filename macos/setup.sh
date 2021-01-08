@@ -18,7 +18,6 @@ case $M1 in
     ;;
 esac
 
-brew install mas
 brew install git git-lfs
 brew install svn
 git config --global user.name issakuss
@@ -35,6 +34,7 @@ cp -r dotfiles/ ~/dotfiles/
 
 # Install applications
 brew install vim
+brew install --cask slack
 brew install --cask google-chrome
 brew install --cask bettertouchtool
 brew install --cask karabiner-elements
@@ -49,9 +49,6 @@ brew install --cask appcleaner
 brew install --cask dropbox
 brew install --cask qlstephen
 brew install --cask qlmarkdown
-
-mas install 803453959 # Slack
-mas install 409183694 # Keynote
 
 case $VPN in
   "" | [Yy]* )
