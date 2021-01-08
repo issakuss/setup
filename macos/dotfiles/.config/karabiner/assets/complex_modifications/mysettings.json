@@ -1,0 +1,50 @@
+{
+  "title": "mysettings",
+  "rules": [
+    {
+      "description": "Swap Ctrl and Cmd only in terminal",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command",
+            "modifiers": {"optional": ["any"]}
+          },
+          "to": [{"key_code": "left_control"}],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
+                "^co\\.zeit\\.hyperterm$",
+                "^co\\.zeit\\.hyper$",
+                "^io\\.alacritty$",
+                "^net\\.kovidgoyal\\.kitty$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Caps + k -> Ctrl + k (Kana)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous":[
+              {"key_code": "caps_lock"},
+              {"key_code": "k"}
+            ],
+            "modifiers": {"optional": ["any"]}
+          },
+          "to": [
+            {"key_code": "k",
+             "modifiers": ["left_control"]}
+          ]
+        }
+      ]
+    }
+  ]
+}

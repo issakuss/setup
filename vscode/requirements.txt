@@ -1,3 +1,0 @@
-ms-python.python
-ms-toolsai.jupyter
-vscodevim.vim
