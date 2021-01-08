@@ -2,9 +2,22 @@
 
 echo -n "skip VPN? [Y/n]: "
 read VPN
+echo -n "M1 Mac? [Y/n]: "
+read M1
 
 # Install installers
-zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+case $M1 in
+  "" | [Yy]* )
+    cd /opt
+    mkdir homebrew
+    curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+    cd ~/
+    ;;
+  * )
+    zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ;;
+esac
+
 brew install mas
 brew install git git-lfs
 git config --global user.name issakuss
