@@ -45,7 +45,7 @@ brew install --cask adobe-creative-cloud
 #brew install --cask microsoft-word
 #brew install --cask microsoft-excel
 #brew install --cask microsoft-powerpoint
-Brew install --cask microsoft-onedrive
+Brew install --cask onedrive
 brew install --cask appcleaner
 brew install --cask dropbox
 brew install --cask qlstephen
@@ -62,7 +62,7 @@ esac
 #zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vscode/setup_for_macos.sh)" # VScode
 
 # Install Font
-cp private/font ~/Library/Fonts
+cp private/font/ ~/Library/Fonts/
 
 # Application settings
 ## https://github.com/sindresorhus/quick-look-plugins
@@ -78,7 +78,7 @@ cp private/license.bettertouchtool ~/Downloads/
 cp mysetting_bettertouchtool.json ~/Downloads/
 
 ## Karabiner
-ln -s ~/dotfiles/.config ~/.config
+ln -sf ~/dotfiles/.config ~/.config
 
 # macOS settings
 chflags nohidden ~/Library
