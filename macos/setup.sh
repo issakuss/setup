@@ -1,5 +1,5 @@
 #!/bin/sh
-
+echo -n "Version: 11"
 echo -n "skip VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
