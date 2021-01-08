@@ -10,7 +10,7 @@ case $M1 in
   "" | [Yy]* )
     sudo mkdir /opt/homebrew
     sudo chown issakuss /opt/homebrew
-    sudo curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+    sudo curl -L https://github.com/Homebrew/brew/tarball/master | sudo tar xz --strip 1 -C homebrew
     echo 'export PATH=/opt/homebrew/bin:$PATH' >> ~/.zshrc
     echo 'export HOMEBREW_CACHE=/opt/homebrew/cache' >> ~/.zshrc
     source ~/.zshrc
