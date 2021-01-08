@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Version: 19 \n"
+echo -n "Version: 20 \n"
 echo -n "Install VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
@@ -81,20 +81,20 @@ cp mysetting_bettertouchtool.json ~/Downloads/
 ln -s ~/dotfiles/.config ~/.config
 
 # macOS settings
-chflags nohidden ~/Library  # ~/Library ディレクトリを見えるようにする
-sudo chflags nohidden /Volumes  # /Volumes ディレクトリを見えるようにする
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true  # 全ての拡張子のファイルを表示する
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true  # ネットワークストレージに .DS_Store ファイルを作成しない
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true  # USBに .DS_Store ファイルを作成しない
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false  # 拡張子変更時の警告を無効化する
-defaults write com.apple.finder QLEnableTextSelection -bool true  # パスバーを表示する
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 3  # Tabでボタンフォーカス切り替え
-defaults write com.apple.screencapture show-thumbnail -bool false  # フローティングサムネールスキップ
-defaults write com.apple.dock autohide -bool true  # Dockを自動的に非表示
-defaults write -g com.apple.mouse.tapBehavior -int 1  # タップをクリックとして扱う
-defaults write -g com.apple.trackpad.threeFingerHorizSwipeGesture -int 0  # ４本指でスクリーン間スワイプ
-defaults write -g com.apple.trackpad.threeFingerVertSwipeGesture -int 0  # ４本指でMission Control/Expose
-defaults write com.apple.dock showAppExposeGestureEnabled -bool true  # アプリケーションExpose有効
+chflags nohidden ~/Library
+sudo chflags nohidden /Volumes
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+defaults write com.apple.finder QLEnableTextSelection -bool true
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+defaults write com.apple.screencapture show-thumbnail -bool false
+defaults write com.apple.dock autohide -bool true
+defaults write -g com.apple.mouse.tapBehavior -int 1
+defaults write -g com.apple.trackpad.threeFingerHorizSwipeGesture -int 0
+defaults write -g com.apple.trackpad.threeFingerVertSwipeGesture -int 0
+defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 
 # Other settings
 #ln -s ~/Dropbox/ssh/ ~/.ssh  # ssh to NCD-NODE
