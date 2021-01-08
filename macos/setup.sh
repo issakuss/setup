@@ -1,5 +1,5 @@
 #!/bin/sh
-echo -n "Version: 13 \n"
+echo -n "Version: 14 \n"
 echo -n "skip VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
@@ -10,12 +10,13 @@ case $M1 in
   "" | [Yy]* )
     xcode-select --install
     echo -n "Install XCode and any key to continue"
+    read DMY
     sudo mkdir /opt/homebrew
     sudo chown issakuss /opt/homebrew
     cd /opt
     sudo curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-    echo 'export PATH=/opt/homebrew/bin:$PATH' >> ~/.zshrc
-    echo 'export HOMEBREW_CACHE=/opt/homebrew/cache' >> ~/.zshrc
+    sudo echo 'export PATH=/opt/homebrew/bin:$PATH' >> ~/.zshrc
+    sudo echo 'export HOMEBREW_CACHE=/opt/homebrew/cache' >> ~/.zshrc
     source ~/.zshrc
     cd ~/Desktop
     ;;
