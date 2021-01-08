@@ -102,3 +102,4 @@ defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 # cleanup
 cd ../
 rm -rf attaches
+brew cleanup -s
