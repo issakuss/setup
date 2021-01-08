@@ -1,5 +1,5 @@
 #!/bin/sh
-echo -n "Version: 12 \n"
+echo -n "Version: 13 \n"
 echo -n "skip VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
@@ -8,6 +8,8 @@ read M1
 # Install installers
 case $M1 in
   "" | [Yy]* )
+    xcode-select --install
+    echo -n "Install XCode and any key to continue"
     sudo mkdir /opt/homebrew
     sudo chown issakuss /opt/homebrew
     cd /opt
