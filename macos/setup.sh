@@ -43,9 +43,9 @@ mas install 409183694 # Keynote
 
 case $VPN in
   "" | [Yy]* )
-    brew install openconnect
     ;;
   * )
+    brew install openconnect
     ;;
 esac
 
