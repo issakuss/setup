@@ -27,13 +27,13 @@ esac
 
 brew install mas
 brew install git git-lfs
+brew install svn
 git config --global user.name issakuss
 git config --global user.email issakuss@gmail.com
 
 # Get files
 curl -O https://raw.githubusercontent.com/issakuss/setup/master/macos/private.zip
 unzip private.zip
-echo -n "OK! wait for finish!"
 svn export https://github.com/issakuss/setup/branches/master/dotfiles
 
 # Add to dotfiles
