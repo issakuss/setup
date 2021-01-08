@@ -1,5 +1,5 @@
 #!/bin/sh
-echo -n "Version: 11"
+echo -n "Version: 12 \n"
 echo -n "skip VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
@@ -10,10 +10,12 @@ case $M1 in
   "" | [Yy]* )
     sudo mkdir /opt/homebrew
     sudo chown issakuss /opt/homebrew
-    sudo curl -L https://github.com/Homebrew/brew/tarball/master | sudo tar xz --strip 1 -C homebrew
+    cd /opt
+    sudo curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
     echo 'export PATH=/opt/homebrew/bin:$PATH' >> ~/.zshrc
     echo 'export HOMEBREW_CACHE=/opt/homebrew/cache' >> ~/.zshrc
     source ~/.zshrc
+    cd ~/Desktop
     ;;
   * )
     zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
