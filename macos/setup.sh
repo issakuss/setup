@@ -1,5 +1,6 @@
 #!/bin/sh
-echo -n "Version: 18 \n"
+
+echo -n "Version: 19 \n"
 echo -n "Install VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
