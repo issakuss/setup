@@ -1,6 +1,6 @@
 #!/bin/sh
-echo -n "Version: 16 \n"
-echo -n "skip VPN? [Y/n]: "
+echo -n "Version: 17 \n"
+echo -n "Install VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
 read M1
@@ -8,20 +8,13 @@ read M1
 # Install installers
 case $M1 in
   "" | [Yy]* )
-    xcode-select --install
-    echo -n "Install XCode and any key to continue"
-    read DMY
-    sudo mkdir /opt/homebrew
-    sudo chown issakuss /opt/homebrew
-    cd /opt
-    sudo curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-    sudo echo 'export PATH=/opt/homebrew/bin:$PATH' >> ~/.zshrc
-    sudo echo 'export HOMEBREW_CACHE=/opt/homebrew/cache' >> ~/.zshrc
-    source ~/.zshrc
+    softwareupdate --install-rosetta
+    zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/m1brew/setup.sh)"
     cd ~/Desktop
     ;;
   * )
-    zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    #zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    cd ~/Desktop
     ;;
 esac
 
@@ -32,9 +25,9 @@ git config --global user.name issakuss
 git config --global user.email issakuss@gmail.com
 
 # Get files
-curl -O https://raw.githubusercontent.com/issakuss/setup/master/macos/private.zip
+svn export https://github.com/issakuss/setup/branches/master/attaches
+cd attaches 
 unzip private.zip
-svn export https://github.com/issakuss/setup/branches/master/dotfiles
 
 # Add to dotfiles
 mkdir -p ~/dotfiles
@@ -43,15 +36,15 @@ cp -r dotfiles/ ~/dotfiles/
 # Install applications
 brew install vim
 brew install --cask google-chrome
-brew install --cask opera
 brew install --cask bettertouchtool
 brew install --cask karabiner-elements
 brew install --cask evernote
 brew install --cask google-japanese-ime
 brew install --cask adobe-creative-cloud
-brew install --cask microsoft-word
-brew install --cask microsoft-excel
-brew install --cask microsoft-powerpoint
+#brew install --cask microsoft-word
+#brew install --cask microsoft-excel
+#brew install --cask microsoft-powerpoint
+Brew install --cask microsoft-onedrive
 brew install --cask appcleaner
 brew install --cask dropbox
 brew install --cask qlstephen
@@ -62,9 +55,9 @@ mas install 409183694 # Keynote
 
 case $VPN in
   "" | [Yy]* )
+    brew install openconnect
     ;;
   * )
-    brew install openconnect
     ;;
 esac
 
@@ -110,4 +103,4 @@ defaults write com.apple.dock showAppExposeGestureEnabled -bool true  # アプ�
 
 # cleanup
 cd ../
-rm -rf dotfiles private
+rm -rf attaches
