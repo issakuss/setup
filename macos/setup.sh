@@ -5,7 +5,7 @@ read VPN
 echo -n "Require password right now..."
 
 # Get files
-wget https://raw.githubusercontent.com/issakuss/setup/master/private.zip
+curl -O https://raw.githubusercontent.com/issakuss/setup/master/macos/private.zip
 unzip private.zip
 echo -n "OK! wait for finish!"
 svn export https://github.com/issakuss/setup/branches/master/dotfiles
