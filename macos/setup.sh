@@ -2,7 +2,13 @@
 
 echo -n "skip VPN? [Y/n]: "
 read VPN
-echo -n "Require password right now..."
+
+# Install installers
+zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install mas
+brew install git git-lfs
+git config --global user.name issakuss
+git config --global user.email issakuss@gmail.com
 
 # Get files
 curl -O https://raw.githubusercontent.com/issakuss/setup/master/macos/private.zip
@@ -13,13 +19,6 @@ svn export https://github.com/issakuss/setup/branches/master/dotfiles
 # Add to dotfiles
 mkdir -p ~/dotfiles
 cp -r dotfiles/ ~/dotfiles/
-
-# Install installers
-zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install mas
-brew install git git-lfs
-git config --global user.name issakuss
-git config --global user.email issakuss@gmail.com
 
 # Install applications
 brew install vim
