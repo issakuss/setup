@@ -1,5 +1,5 @@
 #!/bin/sh
-echo -n "Version: 17 \n"
+echo -n "Version: 18 \n"
 echo -n "Install VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
@@ -25,7 +25,7 @@ git config --global user.name issakuss
 git config --global user.email issakuss@gmail.com
 
 # Get files
-svn export https://github.com/issakuss/setup/branches/master/attaches
+svn export https://github.com/issakuss/setup/branches/master/macos/attaches
 cd attaches 
 unzip private.zip
 
