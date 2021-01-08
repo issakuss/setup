@@ -8,10 +8,12 @@ read M1
 # Install installers
 case $M1 in
   "" | [Yy]* )
-    cd /opt
-    mkdir homebrew
-    curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-    cd ~/
+    sudo mkdir /opt/homebrew
+    chown issakuss /opt/homebrew
+    sudo curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+    echo 'export PATH=/opt/homebrew/bin:$PATH' >> ~/.zshrc
+    echo 'export HOMEBREW_CACHE=/opt/homebrew/cache' >> ~/.zshrc
+    source ~/.zshrc
     ;;
   * )
     zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -93,8 +95,7 @@ defaults write com.apple.finder QLEnableTextSelection -bool true  # パスバー
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3  # Tabでボタンフォーカス切り替え
 defaults write com.apple.screencapture show-thumbnail -bool false  # フローティングサムネールスキップ
 defaults write com.apple.dock autohide -bool true  # Dockを自動的に非表示
-
-defaults write -g com.apple.mouse.tapBehavior -int 1　　# タップをクリックとして扱う
+defaults write -g com.apple.mouse.tapBehavior -int 1  # タップをクリックとして扱う
 defaults write -g com.apple.trackpad.threeFingerHorizSwipeGesture -int 0  # ４本指でスクリーン間スワイプ
 defaults write -g com.apple.trackpad.threeFingerVertSwipeGesture -int 0  # ４本指でMission Control/Expose
 defaults write com.apple.dock showAppExposeGestureEnabled -bool true  # アプリケーションExpose有効
