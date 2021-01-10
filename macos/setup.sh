@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Version: 22 \n"
+echo -n "Version: 23 \n"
 echo -n "Install VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
@@ -42,10 +42,9 @@ brew install --cask karabiner-elements
 brew install --cask evernote
 brew install --cask google-japanese-ime
 brew install --cask adobe-creative-cloud
-#brew install --cask microsoft-word
-#brew install --cask microsoft-excel
-#brew install --cask microsoft-powerpoint
-Brew install --cask onedrive
+brew install --cask microsoft-word
+brew install --cask microsoft-excel
+brew install --cask microsoft-powerpoint
 brew install --cask appcleaner
 brew install --cask dropbox
 brew install --cask qlstephen
@@ -83,18 +82,20 @@ ln -sf ~/dotfiles/.config ~/.config
 # macOS settings
 chflags nohidden ~/Library
 sudo chflags nohidden /Volumes
+defaults write com.apple.finder ShowPathbar -bool true
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 defaults write com.apple.finder QLEnableTextSelection -bool true
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 defaults write com.apple.screencapture show-thumbnail -bool false
 defaults write com.apple.dock autohide -bool true
 defaults write -g com.apple.mouse.tapBehavior -int 1
-defaults write -g com.apple.trackpad.threeFingerHorizSwipeGesture -int 0
-defaults write -g com.apple.trackpad.threeFingerVertSwipeGesture -int 0
 defaults write com.apple.dock showAppExposeGestureEnabled -bool true
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+killall Finder
 
 # Other settings
 #ln -s ~/Dropbox/ssh/ ~/.ssh  # ssh to NCD-NODE
@@ -103,3 +104,4 @@ defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 cd ../
 rm -rf attaches
 brew cleanup -s
+echo -n "FINISH!"
