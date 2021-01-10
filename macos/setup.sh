@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Version: 24 \n"
+echo -n "Version: 25 \n"
 echo -n "Install VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
@@ -52,6 +52,7 @@ brew install --cask qlmarkdown
 case $VPN in
   "" | [Yy]* )
     brew install openconnect
+    zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vpn/setup.sh)"
     ;;
   * )
     ;;
