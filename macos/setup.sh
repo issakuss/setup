@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Version: 23 \n"
+echo -n "Version: 24 \n"
 echo -n "Install VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
@@ -10,7 +10,7 @@ read M1
 case $M1 in
   "" | [Yy]* )
     softwareupdate --install-rosetta
-    zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/m1brew/setup.sh)"
+    #zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/m1brew/setup.sh)"
     cd ~/Desktop
     ;;
   * )
@@ -41,7 +41,6 @@ brew install --cask bettertouchtool
 brew install --cask karabiner-elements
 brew install --cask evernote
 brew install --cask google-japanese-ime
-brew install --cask adobe-creative-cloud
 brew install --cask microsoft-word
 brew install --cask microsoft-excel
 brew install --cask microsoft-powerpoint
