@@ -48,7 +48,6 @@ brew install --cask appcleaner
 brew install --cask dropbox
 brew install --cask qlstephen
 brew install --cask qlmarkdown
-curl -o ~/Downloads/illustrator.dmg --keepalive "https://ccmdl.adobe.com/AdobeProducts/KCCC/CCD/5_3_1/osx10/ACCCx5_3_1_470.dmg"
 
 case $VPN in
   "" | [Yy]* )
