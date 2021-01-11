@@ -4,5 +4,5 @@ curl -O https://raw.githubusercontent.com/issakuss/setup/master/vscode/connect_t
 chmod 777 connect_to_atr.command
 echo -n "Password for VPN: "
 read PASS
-sed -i '2s/^/PASS=${PASS}/' connect_to_atr.command
+sed -i '' -e "s/ENTERPASSWORDHERE/${PASS}/g" connect_to_atr.command
 mv connect_to_atr.command /Applications/

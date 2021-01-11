@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Version: 25 \n"
+echo -n "Version: 26 \n"
 echo -n "Install VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
@@ -30,8 +30,8 @@ cd attaches
 unzip private.zip
 
 # Add to dotfiles
-mkdir -p ~/dotfiles
-cp -r dotfiles/ ~/dotfiles/
+#mkdir -p ~/dotfiles
+#cp -r dotfiles/ ~/dotfiles/
 
 # Install applications
 brew install vim
@@ -61,7 +61,7 @@ esac
 #zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vscode/setup_for_macos.sh)" # VScode
 
 # Install Font
-cp private/font/ ~/Library/Fonts/
+cp -r private/font/ ~/Library/Fonts/
 
 # Application settings
 ## https://github.com/sindresorhus/quick-look-plugins
