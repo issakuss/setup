@@ -1,6 +1,5 @@
 #!/bin/sh
 
-echo -n "Version: 26 \n"
 echo -n "Install VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
@@ -10,11 +9,11 @@ read M1
 case $M1 in
   "" | [Yy]* )
     softwareupdate --install-rosetta
-    #zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/m1brew/setup.sh)"
+    zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/m1brew/setup.sh)"
     cd ~/Desktop
     ;;
   * )
-    #zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     cd ~/Desktop
     ;;
 esac
