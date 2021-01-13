@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo -n "Setup file version is 0.0.0.34\n"
+
 echo -n "Install VPN? [Y/n]: "
 read VPN
 echo -n "M1 Mac? [Y/n]: "
