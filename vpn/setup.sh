@@ -1,5 +1,6 @@
 #!/bin/sh
 
+brew install openconnect
 curl -O https://raw.githubusercontent.com/issakuss/setup/master/vscode/connect_to_atr.command
 chmod 777 connect_to_atr.command
 echo -n "Password for VPN: "

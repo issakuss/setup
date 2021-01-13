@@ -8,7 +8,6 @@ read M1
 # Install installers
 case $M1 in
   "" | [Yy]* )
-    softwareupdate --install-rosetta
     zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/m1brew/setup.sh)"
     cd ~/Desktop
     ;;
@@ -50,7 +49,6 @@ brew install --cask qlmarkdown
 
 case $VPN in
   "" | [Yy]* )
-    brew install openconnect
     zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vpn/setup.sh)"
     ;;
   * )
