@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Setup file version is 0.0.0.36\n"
+echo -n "Setup file version is 0.1.0.37\n"
 
 echo -n "Install VPN? [Y/n]: "
 read VPN
@@ -70,7 +70,6 @@ xattr -d -r com.apple.quarantine ~/Library/QuickLook
 xattr -cr ~/Library/QuickLook/QLStephen.qlgenerator
 qlmanage -r
 qlmanage -r cache
-killall Finder
 
 ## BetterTouchTool (Use manually)
 cp private/license.bettertouchtool ~/Downloads/
@@ -95,7 +94,6 @@ defaults write -g com.apple.mouse.tapBehavior -int 1
 defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
-killall Finder
 
 # Other settings
 #ln -s ~/Dropbox/ssh/ ~/.ssh  # ssh to NCD-NODE
@@ -104,4 +102,4 @@ killall Finder
 cd ../
 rm -rf attaches
 brew cleanup -s
-echo -n "FINISH!"
+echo -n "FINISH! REBOOT COMPUTER"
