@@ -29,8 +29,8 @@ cd attaches
 unzip private.zip
 
 # Add to dotfiles
-#mkdir -p ~/dotfiles
-#cp -r dotfiles/ ~/dotfiles/
+mkdir -p ~/dotfiles
+cp -r dotfiles/ ~/dotfiles/
 
 # Install applications
 brew install vim
