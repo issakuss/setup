@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Setup file version is 0.0.0.35\n"
+echo -n "Setup file version is 0.0.0.36\n"
 
 echo -n "Install VPN? [Y/n]: "
 read VPN
@@ -11,6 +11,7 @@ read M1
 case $M1 in
   "" | [Yy]* )
     zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/m1brew/setup.sh)"
+    source ~/.zshrc
     cd ~/Desktop
     ;;
   * )

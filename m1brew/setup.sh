@@ -10,4 +10,3 @@ cd /opt
 sudo curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 sudo echo 'export PATH=/opt/homebrew/bin:$PATH' >> ~/.zshrc
 sudo echo 'export HOMEBREW_CACHE=/opt/homebrew/cache' >> ~/.zshrc
-source ~/.zshrc
