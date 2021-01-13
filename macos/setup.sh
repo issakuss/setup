@@ -47,6 +47,8 @@ brew install --cask microsoft-excel
 brew install --cask microsoft-powerpoint
 brew install --cask appcleaner
 brew install --cask dropbox
+brew install --cask zoom
+brew install --cask zotero
 brew install --cask qlstephen
 brew install --cask qlmarkdown
 
