@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Setup file version is 0.1.0.37\n"
+echo -n "Setup file version is 0.1.0.40\n"
 
 echo -n "Install VPN? [Y/n]: "
 read VPN
@@ -36,7 +36,7 @@ cp -r dotfiles/ ~/dotfiles/
 
 # Install applications
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/adobe/setup.sh)"
-brew install vim
+zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vim/setup.sh)"
 brew install --cask slack
 brew install --cask google-chrome
 brew install --cask bettertouchtool
