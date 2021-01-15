@@ -98,8 +98,10 @@ defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
-# Other settings
-#ln -s ~/Dropbox/ssh/ ~/.ssh  # ssh to NCD-NODE
+ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/~/icloud
+
+# SSH setting
+ln -s ~/icloud/ssh/ ~/.ssh
 
 # cleanup
 cd ../
