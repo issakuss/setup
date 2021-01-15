@@ -42,12 +42,10 @@ brew install --cask google-chrome
 brew install --cask bettertouchtool
 brew install --cask karabiner-elements
 brew install --cask evernote
-brew install --cask google-japanese-ime
 brew install --cask microsoft-word
 brew install --cask microsoft-excel
 brew install --cask microsoft-powerpoint
 brew install --cask appcleaner
-brew install --cask dropbox
 brew install --cask zoom
 brew install --cask zotero
 brew install --cask qlstephen
