@@ -35,6 +35,7 @@ mkdir -p ~/dotfiles
 cp -r dotfiles/ ~/dotfiles/
 
 # Install applications
+zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/adobe/setup.sh)"
 brew install vim
 brew install --cask slack
 brew install --cask google-chrome
