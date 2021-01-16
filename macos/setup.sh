@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Setup file version is 0.1.0.40\n"
+echo -n "Setup file version is 0.2.0.45\n"
 
 echo -n "Install VPN? [Y/n]: "
 read VPN
@@ -24,6 +24,10 @@ brew install git git-lfs
 brew install svn
 git config --global user.name issakuss
 git config --global user.email issakuss@gmail.com
+
+# SSH setting
+ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/~/icloud
+ln -s ~/icloud/ssh/ ~/.ssh
 
 # Get files
 svn export https://github.com/issakuss/setup/branches/master/macos/attaches
@@ -95,11 +99,6 @@ defaults write -g com.apple.mouse.tapBehavior -int 1
 defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
-
-ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/~/icloud
-
-# SSH setting
-ln -s ~/icloud/ssh/ ~/.ssh
 
 # cleanup
 cd ../
