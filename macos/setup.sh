@@ -25,6 +25,12 @@ brew install svn
 git config --global user.name issakuss
 git config --global user.email issakuss@gmail.com
 
+# dotfiles
+cd ~/
+git clone git@github.com:issakuss/dotfiles.git 
+zsh dotfiles/setup.sh
+cd ~/Desktop
+
 # SSH setting
 ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/~/icloud
 ln -s ~/icloud/ssh/ ~/.ssh
@@ -33,10 +39,6 @@ ln -s ~/icloud/ssh/ ~/.ssh
 svn export https://github.com/issakuss/setup/branches/master/macos/attaches
 cd attaches 
 unzip private.zip
-
-# Add to dotfiles
-mkdir -p ~/dotfiles
-cp -r dotfiles/ ~/dotfiles/
 
 # Install applications
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/adobe/setup.sh)"
@@ -79,9 +81,6 @@ qlmanage -r cache
 ## BetterTouchTool (Use manually)
 cp private/license.bettertouchtool ~/Downloads/
 cp mysetting_bettertouchtool.json ~/Downloads/
-
-## Karabiner
-ln -sf ~/dotfiles/.config ~/.config
 
 # macOS settings
 chflags nohidden ~/Library

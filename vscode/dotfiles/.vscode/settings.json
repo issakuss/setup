@@ -1,9 +1,0 @@
-{
-    "window.zoomLevel": 1,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j","k"],
-            "after": ["<Esc>"]
-        }
-    ], 
-}
