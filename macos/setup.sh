@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Setup file version is 0.2.0.45\n"
+echo -n "Setup file version is 0.2.0.50\n"
 
 echo -n "Install VPN? [Y/n]: "
 read VPN
@@ -15,7 +15,7 @@ case $M1 in
     cd ~/Desktop
     ;;
   * )
-    zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     cd ~/Desktop
     ;;
 esac
