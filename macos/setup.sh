@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Setup file version is 0.2.0.51\n"
+echo -n "Setup file version is 0.3.0.54\n"
 
 echo -n "Install VPN? [Y/n]: "
 read VPN
