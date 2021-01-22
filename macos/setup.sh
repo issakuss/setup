@@ -26,8 +26,9 @@ git config --global user.name issakuss
 git config --global user.email issakuss@gmail.com
 
 # SSH setting
-ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/~/icloud
+ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/ ~/icloud
 ln -s ~/icloud/ssh/ ~/.ssh
+chmod 600 ~/.ssh/id_rsa
 
 # dotfiles
 cd ~/
