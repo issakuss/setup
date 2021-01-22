@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Setup file version is 0.2.0.50\n"
+echo -n "Setup file version is 0.2.0.51\n"
 
 echo -n "Install VPN? [Y/n]: "
 read VPN
@@ -25,15 +25,15 @@ brew install svn
 git config --global user.name issakuss
 git config --global user.email issakuss@gmail.com
 
+# SSH setting
+ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/~/icloud
+ln -s ~/icloud/ssh/ ~/.ssh
+
 # dotfiles
 cd ~/
 git clone git@github.com:issakuss/dotfiles.git 
 zsh dotfiles/setup.sh
 cd ~/Desktop
-
-# SSH setting
-ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/~/icloud
-ln -s ~/icloud/ssh/ ~/.ssh
 
 # Get files
 svn export https://github.com/issakuss/setup/branches/master/macos/attaches
