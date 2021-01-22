@@ -8,4 +8,4 @@ else
 fi
 
 homebrew install --cask adobe-creative-cloud-cleaner-tool
-curl -o how-to-use-irare https://github.com/issakuss/setup/master/adobe/README.md
+curl -o how-to-use-irare.md https://github.com/issakuss/setup/master/adobe/README.md

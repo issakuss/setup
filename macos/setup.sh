@@ -42,7 +42,8 @@ unzip private.zip
 
 # Install applications
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/adobe/setup.sh)"
-zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vim/setup.sh)"
+zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/neovim/setup.sh)"
+zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vscode/setup.sh)"
 brew install --cask slack
 brew install --cask google-chrome
 brew install --cask bettertouchtool
@@ -64,8 +65,6 @@ case $VPN in
   * )
     ;;
 esac
-
-#zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vscode/setup_for_macos.sh)" # VScode
 
 # Install Font
 cp -r private/font/ ~/Library/Fonts/
