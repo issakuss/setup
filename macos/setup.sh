@@ -45,6 +45,7 @@ unzip private.zip
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/adobe/setup.sh)"
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/neovim/setup.sh)"
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vscode/setup.sh)"
+zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/zotero/setup.sh)"
 brew install --cask slack
 brew install --cask google-chrome
 brew install --cask bettertouchtool
@@ -55,7 +56,6 @@ brew install --cask microsoft-excel
 brew install --cask microsoft-powerpoint
 brew install --cask appcleaner
 brew install --cask zoom
-brew install --cask zotero
 brew install --cask qlstephen
 brew install --cask qlmarkdown
 
