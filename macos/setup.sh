@@ -55,6 +55,7 @@ brew install --cask microsoft-word
 brew install --cask microsoft-excel
 brew install --cask microsoft-powerpoint
 brew install --cask appcleaner
+brew install --cask keyboard-cleaner
 brew install --cask zoom
 brew install --cask qlstephen
 brew install --cask qlmarkdown
