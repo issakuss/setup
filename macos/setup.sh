@@ -37,7 +37,6 @@ unzip -P $PASS private-setup.zip
 # Install applications
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/adobe/setup.sh)"
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vscode/setup.sh)"
-zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/zotero/setup.sh)"
 brew install --cask notion
 brew install issakuss/papnt/papnt
 brew install --cask slack
