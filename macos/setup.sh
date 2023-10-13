@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Setup file version is $(cat VERSION)\n"
+echo -n "Setup file version is 1.2.1.1\n"
 
 echo -n "Password to unzip: "
 read PASS
@@ -10,6 +10,8 @@ read VPN
 
 # Install installers
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/issakuss/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 cd ~/Desktop
 
 brew install git git-lfs
@@ -29,10 +31,19 @@ zsh dotfiles/setup.sh
 cd ~/Desktop
 
 # Get files
-svn export https://github.com/issakuss/setup/branches/master/macos/attaches
-cd attaches 
+svn export https://github.com/issakuss/setup/branches/main/macos/attaches ~/Desktop/attaches
 cp ~/icloud/private-setup.zip private-setup.zip
 unzip -P $PASS private-setup.zip
+rm -f private-setup.zip
+
+# VPN
+case $VPN in
+  "" | [Yy]* )
+    zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vpn/setup.sh)"
+    ;;
+  * )
+    ;;
+esac
 
 # Install applications
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/adobe/setup.sh)"
@@ -56,16 +67,9 @@ brew install --cask zoom
 brew install --cask qlstephen
 brew install --cask qlmarkdown
 
-case $VPN in
-  "" | [Yy]* )
-    zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vpn/setup.sh)"
-    ;;
-  * )
-    ;;
-esac
-
 # Install Font
 cp -r private/font/ ~/Library/Fonts/
+rm -rf private/font/
 
 # Application settings
 ## https://github.com/sindresorhus/quick-look-plugins
@@ -74,14 +78,6 @@ xattr -d -r com.apple.quarantine ~/Library/QuickLook
 xattr -cr ~/Library/QuickLook/QLStephen.qlgenerator
 qlmanage -r
 qlmanage -r cache
-
-## BetterTouchTool (Use manually)
-cp private/license.bettertouchtool ~/Downloads/
-cp mysetting_bettertouchtool.json ~/Downloads/
-
-## Workflows (Use manually)
-cp private/maildrop.workflow.zip ~/Downloads
-cp workflow.workflow.zip ~/Downloads
 
 # macOS settings
 chflags nohidden ~/Library
@@ -102,7 +98,6 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 defaults write com.apple.mail minSizeKB 3000
 
 # cleanup
-cd ../
-rm -rf attaches
+cd ~/Desktop
 brew cleanup -s
 echo -n "FINISH! REBOOT COMPUTER"
