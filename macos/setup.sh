@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Setup file version is 1.2.1.1\n"
+echo -n "Setup file version is 1.3.0.0\n"
 
 echo -n "Password to unzip: "
 read PASS
@@ -14,14 +14,14 @@ read VPN
 eval "$(/opt/homebrew/bin/brew shellenv)"
 cd ~/Desktop
 
-brew install git git-lfs
+brew install git
 brew install svn
 git config --global user.name issakuss
 git config --global user.email issakuss@gmail.com
 
 # SSH setting
 ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/ ~/icloud
-cp -rf ~/icloud/ssh/ ~/.ssh/
+cp -rf ~/icloud/setup/ssh/ ~/.ssh/
 chmod 600 ~/.ssh/id_rsa
 
 # dotfiles
@@ -32,7 +32,7 @@ cd ~/Desktop
 
 # Get files
 svn export https://github.com/issakuss/setup/branches/main/macos/attaches ~/Desktop/attaches
-cp ~/icloud/private-setup.zip private-setup.zip
+cp ~/icloud/setup/private-setup.zip private-setup.zip
 unzip -P $PASS private-setup.zip
 rm -f private-setup.zip
 
@@ -50,6 +50,7 @@ zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/ado
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vscode/setup.sh)"
 brew install --cask notion
 brew install issakuss/papnt/papnt
+brew install --cask notion-calendar
 brew install --cask slack
 brew install --cask google-chrome
 brew install --cask bettertouchtool
