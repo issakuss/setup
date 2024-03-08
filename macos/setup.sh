@@ -46,8 +46,10 @@ case $VPN in
 esac
 
 # Install applications
+brew install miniconda
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/adobe/setup.sh)"
 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/vscode/setup.sh)"
+zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/quarto/setup.sh)"
 brew install --cask notion
 brew install issakuss/papnt/papnt
 brew install --cask notion-calendar
