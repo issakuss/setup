@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Setup file version is 1.2.1.1\n"
+echo -n "Setup file version is 1.2.2.0\n"
 
 echo -n "Password to unzip: "
 read PASS
@@ -14,7 +14,7 @@ read VPN
 eval "$(/opt/homebrew/bin/brew shellenv)"
 cd ~/Desktop
 
-brew install git git-lfs
+brew install git
 brew install svn
 git config --global user.name issakuss
 git config --global user.email issakuss@gmail.com
@@ -56,7 +56,6 @@ brew install --cask bettertouchtool
 brew install --cask karabiner-elements
 brew install docker
 brew install docker-compose
-brew install --cask docker
 brew install --cask microsoft-word
 brew install --cask microsoft-excel
 brew install --cask microsoft-powerpoint
@@ -67,7 +66,9 @@ brew install --cask zoom
 brew install --cask qlstephen
 brew install --cask qlmarkdown
 
-# Install Font
+# Install Fonts
+brew install --cask font-noto-sans-cjk-jp
+brew install --cask font-ricty-diminished
 cp -r private/font/ ~/Library/Fonts/
 rm -rf private/font/
 

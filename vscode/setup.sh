@@ -3,13 +3,6 @@
 # Install
 brew install --cask visual-studio-code
 
-# Extensions
-curl -O https://raw.githubusercontent.com/issakuss/setup/master/vscode/extensions.txt
-cat extensions.txt | while read line
-do
- code --install-extension $line
-done
-
 # Docker settings
 brew install docker
 echo -n "Connect to ATR network and press any key: "
