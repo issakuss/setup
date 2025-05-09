@@ -1,9 +1,6 @@
 #!/bin/sh
 
-echo -n "Setup file version is 2.0.0.0\n"
-
-echo -n "Password to unzip: "
-read PASS
+echo -n "Setup file version is 2.0.1.0\n"
 
 echo -n "Install VPN? [Y/n]: "
 read VPN
@@ -21,16 +18,15 @@ esac
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/issakuss/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
-cd ~/Desktop
 
 # Install Git
 brew install git
 git config --global user.name issakuss
 git config --global user.email issakuss@gmail.com
 
-# Alias SSH
+# Copy SSH
 ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/ ~/icloud
-cp -rf ~/icloud/ssh/ ~/.ssh/
+cp -rf ~/icloud/setup/ssh/ ~/.ssh/
 chmod 600 ~/.ssh/id_rsa
 
 # Clone dotfiles
@@ -40,16 +36,13 @@ zsh dotfiles/setup.sh
 
 # Get files
 cd ~/Desktop
-brew install svn
 svn export https://github.com/issakuss/setup/branches/main/attaches ~/Desktop/attaches
-cp ~/icloud/private-setup.zip private-setup.zip
-unzip -P $PASS private-setup.zip
-rm -f private-setup.zip
+cp ~/icloud/setup/attaches/ attaches
 
 # VPN
 
 # Install applications
-zsh -c "$(curl -fsSL https://raw.githubusercontent.com/issakuss/setup/master/adobe/setup.sh)"
+sudo softwareupdate --install-rosetta
 brew install uv
 brew install openconnect
 brew install issakuss/papnt/papnt
@@ -57,6 +50,7 @@ brew install google-japanese-ime
 brew install docker
 brew install docker-compose
 brew install quarto
+brew install --cask chatgpt
 brew install --cask visual-studio-code
 brew install --cask notion
 brew install --cask notion-mail
@@ -80,8 +74,7 @@ brew install --cask qlmarkdown
 # Install Fonts
 brew install --cask font-noto-sans-cjk-jp
 brew install --cask font-ricty-diminished
-cp -r private/font/ ~/Library/Fonts/
-rm -rf private/font/
+mv ~/Desktop/attaches/font/* ~/Library/Fonts/
 
 # Adobe settings
 ln -s cp ~/icloud/picture/myswatch.ai /Applications/Adobe\ Illustrator\ 2023/Presets.localized/ja_JP/スウォッチ
@@ -89,10 +82,9 @@ ln -s cp ~/icloud/picture/myswatch.ai /Applications/Adobe\ Illustrator\ 2023/Pre
 # VPN settings
 case $VPN in
   "" | [Yy]* )
-    chmod 777 ~/Desktop/connect_to_atr.command
-    mv ~/Desktop/connect_to_atr.command /Applications/
-    sed -i '' -e "s/ENTERPASSWORDHERE/${VPNPASS}/g" connect_to_atr.command
-    mv connect_to_atr.command /Applications/
+    chmod 777 ~/Desktop/attaches/connect_to_atr.command
+    mv ~/Desktop/attaches/connect_to_atr.command /Applications/
+    sed -i '' -e "s/ENTERPASSWORDHERE/${VPNPASS}/g" /Applications/connect_to_atr.command
     ;;
   * )
     ;;
@@ -139,6 +131,5 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
 
 # cleanup
-cd ~/Desktop
 brew cleanup -s
 echo -n "FINISH! REBOOT COMPUTER"
