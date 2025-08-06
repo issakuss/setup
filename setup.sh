@@ -26,8 +26,7 @@ git config --global user.email issakuss@gmail.com
 
 # Copy SSH
 ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/ ~/icloud
-cp -rf ~/icloud/setup/ssh/ ~/.ssh/
-chmod 600 ~/.ssh/id_rsa
+ln -s ~/icloud/setup/ssh ~/.ssh
 
 # Clone dotfiles
 cd ~/
