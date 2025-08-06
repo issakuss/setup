@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Setup file version is 2.0.1.0\n"
+echo -n "Setup file version is 2.1.0\n"
 
 echo -n "Install VPN? [Y/n]: "
 read VPN
@@ -42,33 +42,33 @@ cp ~/icloud/setup/attaches/ attaches
 
 # Install applications
 sudo softwareupdate --install-rosetta
-brew install uv
 brew install openconnect
 brew install issakuss/papnt/papnt
 brew install google-japanese-ime
 brew install docker
 brew install docker-compose
 brew install quarto
-brew install --cask chatgpt
+brew install --no-quarantine glance-chamburr
+brew install --cask bettertouchtool
+brew install --cask karabiner-elements
+brew install --cask miniconda
+brew install --cask owncloud
 brew install --cask visual-studio-code
+brew install --cask google-chrome
 brew install --cask notion
 brew install --cask notion-mail
 brew install --cask notion-calendar
 brew install --cask slack
-brew install --cask google-chrome
-brew install --cask bettertouchtool
-brew install --cask karabiner-elements
-brew install --cask adobe-creative-cloud
-brew install --cask adobe-creative-cloud-cleaner-tool
+brew install --cask mattermost
+brew install --cask zoom
 brew install --cask microsoft-word
 brew install --cask microsoft-excel
 brew install --cask microsoft-powerpoint
+brew install --cask chatgpt
+brew install --cask adobe-creative-cloud
 brew install --cask appcleaner
 brew install --cask keyboard-cleaner
 brew install --cask ogdesign-eagle
-brew install --cask zoom
-brew install --cask qlstephen
-brew install --cask qlmarkdown
 
 # Install Fonts
 brew install --cask font-noto-sans-cjk-jp
@@ -100,14 +100,6 @@ case $ATRNET in
   * )
     ;;
 esac
-
-# Quicklook settings
-## https://github.com/sindresorhus/quick-look-plugins
-## https://github.com/whomwah/qlstephen
-xattr -d -r com.apple.quarantine ~/Library/QuickLook
-xattr -cr ~/Library/QuickLook/QLStephen.qlgenerator
-qlmanage -r
-qlmanage -r cache
 
 # macOS settings
 chflags nohidden ~/Library
