@@ -53,6 +53,7 @@ brew install openconnect
 
 ## Inputs
 brew install google-japanese-ime
+brew install --cask uhk-agent
 brew install --cask bettertouchtool
 brew install --cask karabiner-elements
 mas install 1584519802  # Vimlike
@@ -66,6 +67,7 @@ brew install --cask visual-studio-code
 
 ## Clouds and communications
 brew install --cask owncloud
+brew install --cask onedrive
 brew install --cask google-chrome
 brew install --cask slack
 brew install --cask mattermost
@@ -101,6 +103,8 @@ case $VPN in
     chmod 777 ~/Desktop/attaches/connect-to-atr.command
     mv ~/Desktop/attaches/connect-to-atr.command /Applications/
     sed -i '' -e "s/ENTERPASSWORDHERE/${VPNPASS}/g" /Applications/connect-to-atr.command
+    chmod 777 ~/Desktop/attaches/reset-network-config.command
+    mv ~/Desktop/attaches/reset-network-config.command /Applications/
     ;;
   * )
     ;;
