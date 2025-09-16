@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -n "Setup file version is 2.1.0\n"
+echo -n "Setup file version is 2.1.1\n"
 
 echo -n "Install VPN? [Y/n]: "
 read VPN
@@ -24,7 +24,7 @@ brew install git
 git config --global user.name issakuss
 git config --global user.email issakuss@gmail.com
 
-# Copy SSH
+# Link SSH
 ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/ ~/icloud
 ln -s ~/icloud/setup/ssh ~/.ssh
 
@@ -35,40 +35,57 @@ zsh dotfiles/setup.sh
 
 # Get files
 cd ~/Desktop
-svn export https://github.com/issakuss/setup/branches/main/attaches ~/Desktop/attaches
 cp ~/icloud/setup/attaches/ attaches
-
-# VPN
 
 # Install applications
 sudo softwareupdate --install-rosetta
+
+## Misc tools
+brew install mas
+brew install --cask appcleaner
+brew install --cask keyboard-cleaner
+brew install --no-quarantine glance-chamburr
+brew install --cask chatgpt
+mas install 1638457121  # Wallpaler Play
+
+## Networks
 brew install openconnect
-brew install issakuss/papnt/papnt
+
+## Inputs
 brew install google-japanese-ime
+brew install --cask bettertouchtool
+brew install --cask karabiner-elements
+mas install 1584519802  # Vimlike
+
+## Codes and environments
 brew install docker
 brew install docker-compose
 brew install quarto
-brew install --no-quarantine glance-chamburr
-brew install --cask bettertouchtool
-brew install --cask karabiner-elements
 brew install --cask miniconda
-brew install --cask owncloud
 brew install --cask visual-studio-code
+
+## Clouds and communications
+brew install --cask owncloud
 brew install --cask google-chrome
-brew install --cask notion
-brew install --cask notion-mail
-brew install --cask notion-calendar
 brew install --cask slack
 brew install --cask mattermost
 brew install --cask zoom
+
+## Notions
+brew install issakuss/papnt/papnt
+brew install --cask notion
+brew install --cask notion-mail
+brew install --cask notion-calendar
+
+## Designs
+brew install --cask adobe-creative-cloud
+brew install --cask ogdesign-eagle
+
+## MS Offices
 brew install --cask microsoft-word
 brew install --cask microsoft-excel
 brew install --cask microsoft-powerpoint
-brew install --cask chatgpt
-brew install --cask adobe-creative-cloud
-brew install --cask appcleaner
-brew install --cask keyboard-cleaner
-brew install --cask ogdesign-eagle
+
 
 # Install Fonts
 brew install --cask font-noto-sans-cjk-jp
@@ -76,21 +93,21 @@ brew install --cask font-ricty-diminished
 mv ~/Desktop/attaches/font/* ~/Library/Fonts/
 
 # Adobe settings
-ln -s cp ~/icloud/picture/myswatch.ai /Applications/Adobe\ Illustrator\ 2023/Presets.localized/ja_JP/スウォッチ
+sudo cp ~/icloud/picture/myswatch.ai "$(ls -d /Applications/Adobe\ Illustrator\ 20*/ 2>/dev/null | sort -Vr | head -n 1)Presets.localized/ja_JP/スウォッチ/"
 
 # VPN settings
 case $VPN in
   "" | [Yy]* )
-    chmod 777 ~/Desktop/attaches/connect_to_atr.command
-    mv ~/Desktop/attaches/connect_to_atr.command /Applications/
-    sed -i '' -e "s/ENTERPASSWORDHERE/${VPNPASS}/g" /Applications/connect_to_atr.command
+    chmod 777 ~/Desktop/attaches/connect-to-atr.command
+    mv ~/Desktop/attaches/connect-to-atr.command /Applications/
+    sed -i '' -e "s/ENTERPASSWORDHERE/${VPNPASS}/g" /Applications/connect-to-atr.command
     ;;
   * )
     ;;
 esac
 
 # Docker settings
-echo -n "Connect to ATR network? [Y/n]: "
+echo -n "Connected to ATR network? [Y/n]: "
 read ATRNET
 case $ATRNET in
   "" | [Yy]* )
